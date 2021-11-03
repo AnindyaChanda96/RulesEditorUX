@@ -1,0 +1,122 @@
+<tr class="clause clause-row">
+  <td class="add-remove">
+    <span
+      role="button"
+      tabindex="0"
+      aria-label="Insert new clause row"
+      class="taco-icon taco-icon--add clause-row-add"
+      (click)="addNewClauseRowInEditor()"
+      (keydown)="onkeydown($event, 'addClause')"
+    ></span>
+    <span
+      role="button"
+      tabindex="0"
+      aria-label="Remove this clause row"
+      class="taco-icon taco-icon--close clause-row-delete"
+      (click)="removeClauseRowFromEditor()"
+      (keydown)="onkeydown($event, 'removeClause')"
+    ></span>
+  </td>
+  <td class="grouping">
+    <custom-checkbox
+      [name]="'Grouping for filter clause row ' + (clauseIndex + 1) + ' '"
+      type="square"
+      size="s"
+      (isCheckedChange)="groupingCheckToggled($event)"
+    ></custom-checkbox>
+  </td>
+  <td class="groups" [ngStyle]="{ width: groupUiCellWidth }">
+    <div
+      *ngFor="let level of groupUiLevels; let i = index"
+      [ngStyle]="getGroupDivStyle(i)"
+    >
+      <button
+        type="button"
+        aria-label="Ungroup clauses"
+        class="ungroup-button"
+        (click)="removeGroupFromEditor(i)"
+        *ngIf="isGroupStartIndex(i)"
+      >
+        <i class="taco-icon taco-icon--group"></i>
+      </button>
+    </div>
+  </td>
+  <td class="logical">
+    <label class="sr-only" [id]="uniqueId + 'inputLogicalOperatorId' + clauseIndex">
+      Clause row {{ clauseIndex + 1 }} logical operator
+    </label>
+    <custom-select
+      *ngIf="clauseIndex > 0"
+      class="custom-dropdown"
+      [CbModel]="logicalOperators"
+      [selected]="selectedLogicalOperator"
+      [ariaLabelledBy]="uniqueId + 'inputLogicalOperatorId' + clauseIndex"
+      (onSelect)="onLogicalOperatorChange($event)"
+    ></custom-select>
+  </td>
+  <td class="field">
+    <div class="field-control">
+      <label class="sr-only" [attr.for]="uniqueId + 'inputFieldId' + clauseIndex">
+        Clause row {{ clauseIndex + 1 }} field
+      </label>
+      <input
+        type="text"
+        name="Field"
+        [id]="uniqueId + 'inputFieldId' + clauseIndex"
+        [attr.list]="uniqueId + 'inputFieldDataList' + clauseIndex"
+        class="field-control-input"
+        [(ngModel)]="selectedField"
+        (ngModelChange)="onFieldChange($event)"
+        spellcheck="false"
+      />
+      <datalist [id]="uniqueId + 'inputFieldDataList' + clauseIndex">
+        <option *ngFor="let field of fields" [value]="field.name">
+        </option>
+      </datalist>
+	  <i
+		*ngIf="selectedFieldTooltip"
+		class="taco-icon taco-icon--info"
+		[title]="selectedFieldTooltip">
+	  </i>
+    </div>
+  </td>
+  <td class="operator">
+    <label class="sr-only" [id]="uniqueId + 'inputOperatorId' + clauseIndex">
+      Clause row {{ clauseIndex + 1 }} operator
+    </label>
+    <custom-select
+      class="custom-dropdown"
+      [CbModel]="operators"
+      [selected]="selectedOperator"
+      [ariaLabelledBy]="uniqueId + 'inputOperatorId' + clauseIndex"
+      (onSelect)="onOperatorChange($event)"
+    ></custom-select>
+  </td>
+  <td class="value">
+    <div class="value-control">
+      <label class="sr-only" [attr.for]="uniqueId + 'inputValueId' + clauseIndex">
+        Clause row {{ clauseIndex + 1 }} value
+      </label>
+      <input
+        type="text"
+        name="Value"
+        [id]="uniqueId + 'inputValueId' + clauseIndex"
+        [attr.list]="uniqueId + 'inputValueDataList' + clauseIndex"
+        class="value-control-input"
+        [(ngModel)]="selectedValue"
+        (ngModelChange)="onValueChange($event)"
+        [disabled]="isValueDisabled"
+        spellcheck="false"
+      />
+      <datalist [id]="uniqueId + 'inputValueDataList' + clauseIndex">
+        <option *ngFor="let value of values" [value]="value.name">
+        </option>
+      </datalist>
+	  <i
+	    *ngIf="selectedValueTooltip"
+		class="taco-icon taco-icon--info"
+		[title]="selectedValueTooltip">
+	  </i>
+    </div>
+  </td>
+</tr>

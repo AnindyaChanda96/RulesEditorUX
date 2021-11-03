@@ -1,0 +1,96 @@
+.rules-editor {
+    .clauses-table {
+      .clause {
+        height: 25px;
+        vertical-align: top;
+  
+        &.clause-row {
+          .groups {
+            height: 30px;
+            display: inline-flex;
+  
+            .ungroup-button {
+              border: none;
+              background: transparent;
+            }
+          }
+          .validation-status {
+            span {
+              line-height: 30px;
+              margin-left: 5px;
+  
+              .icon-passed {
+                color: green;
+                font-weight: bold;
+              }
+              .icon-failed {
+                color: red;
+                font-weight: bold;
+              }
+            }
+          }
+          .custom-dropdown {
+            .combobox {
+              height: 30px !important;
+              padding: 3px 12px !important;
+            }
+          }
+  
+          .operator {
+            .combobox {
+              width: 165px;
+            }
+          }
+        }
+      }
+    }
+  
+    .value-control {
+      min-height: 30px;
+      height: 30px;
+      margin-bottom: 5px;
+  
+      .value-control-input {
+        min-height: 30px;
+        height: 30px;
+        min-width: 305px;
+        width: 305px;
+        border: 1px solid #707070;
+        padding: 3px 12px;
+      }
+  
+      input::-webkit-calendar-picker-indicator {
+        display: none;
+      }
+  
+      i {
+        padding-left: 4px;
+        color: #0078d4;
+      }
+    }
+  
+    .field-control {
+      min-height: 30px;
+      height: 30px;
+      margin-bottom: 5px;
+  
+      .field-control-input {
+        min-height: 30px;
+        height: 30px;
+        min-width: 305px;
+        width: 305px;
+        border: 1px solid #707070;
+        padding: 3px 12px;
+      }
+  
+      input::-webkit-calendar-picker-indicator {
+        display: none;
+      }
+  
+      i {
+        padding-left: 4px;
+        color: #0078d4;
+      }
+    }
+  }
+  

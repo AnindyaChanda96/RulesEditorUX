@@ -1,0 +1,19 @@
+<section class="input__select--icon">
+  <select
+    [(ngModel)]="selected"
+    class="combobox"
+    (change)="onSelectClick($event)"
+    [disabled]="disabled"
+    [ngClass]="disabled ? 'combobox--disabled' : ''"
+    [attr.aria-labelledby]="ariaLabelledBy"
+    [attr.aria-label]="ariaLabel"
+    (click)="$event.stopPropagation()"
+  >
+    <option
+      *ngFor="let item of CbModel"
+      [ngValue]="item"
+      class="select-option"
+      >{{ item.name }}</option
+    >
+  </select>
+</section>

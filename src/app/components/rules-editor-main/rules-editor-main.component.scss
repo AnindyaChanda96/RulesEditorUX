@@ -1,0 +1,127 @@
+.rules-editor {
+    max-width: 1057px;
+  
+    .clauses-table {
+      border-collapse: collapse;
+      padding: 1px;
+      width: 100%;
+  
+      .clauses-header {
+        float: left;
+        display: table-row;
+        color: var(--text-secondary-color, rgba(0, 0, 0, 0.55));
+  
+        th {
+          font-size: 0.8em;
+          text-align: left;
+          font-weight: 500;
+          display: table-cell;
+          vertical-align: inherit;
+        }
+      }
+  
+      .clause {
+        height: 25px;
+        vertical-align: top;
+  
+        &.clause-row-section {
+          display: table-row-group;
+        }
+  
+        &.add-clause-row {
+          .add-clause-block {
+            width: 135px;
+            max-width: 135px;
+  
+            .add-clause {
+              font-size: 0.9em;
+              color: #0063b1;
+            }
+          }
+        }
+      }
+  
+      .clause-row-add {
+        size: 1.2em;
+        font-size: 14px;
+        line-height: 16px;
+        color: rgba(var(--palette-accent2-dark, 16, 124, 16), 1);
+      }
+  
+      .clause-row-delete {
+        font-size: 14px;
+        line-height: 16px;
+        color: rgba(var(--palette-accent1, 218, 10, 0), 1);
+      }
+  
+      .add-remove {
+        width: 65px;
+        min-width: 65px;
+        max-width: 65px;
+        padding: 5px 0px 0px 5px;
+  
+        span {
+          margin-right: 5px;
+        }
+      }
+  
+      .grouping {
+        width: 26px;
+        padding: 2px 15px 0px 0px;
+  
+        button {
+          border: none;
+          background: transparent;
+  
+          &.grouping-disabled {
+            opacity: 0.5;
+          }
+        }
+      }
+  
+      .logical {
+        width: 100px;
+        min-width: 100px;
+        max-width: 100px;
+        padding-right: 15px;
+      }
+  
+      .field {
+        width: 340px;
+        min-width: 340px;
+        max-width: 340px;
+        padding-right: 15px;
+      }
+  
+      .operator {
+        width: 200px;
+        min-width: 200px;
+        max-width: 200px;
+        padding-right: 15px;
+      }
+  
+      .value {
+        width: 325px;
+        min-width: 325px;
+        max-width: 325px;
+      }
+    }
+  
+    .button-block {
+      width: 250px;
+      display: flex;
+  
+      .submit-button {
+        margin-left: 5px;
+        margin-top: 5px;
+        width: 125px;
+      }
+  
+      .cancel-button {
+        margin-left: 5px;
+        margin-top: 5px;
+        width: 125px;
+      }
+    }
+  }
+  

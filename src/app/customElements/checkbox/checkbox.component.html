@@ -1,0 +1,34 @@
+<div
+  class="custom-checkbox"
+  [ngClass]="disabled ? 'disabled' : ''"
+  (keyup.enter)="onClick($event)"
+  (keyup.space)="onClick($event)"
+  (click)="onClick($event)"
+  [attr.tabindex]="allowFocus ? 0 : -1"
+>
+  <input
+    tabindex="-1"
+    [id]="id"
+    type="checkbox"
+    [checked]="isChecked"
+    hidden="true"
+    [disabled]="disabled"
+  />
+  <i
+    [ngClass]="
+      'custom-icon ' +
+      'custom-icon--checkbox-' +
+      type +
+      (isChecked ? '-composite' : '') +
+      ' ' +
+      (customClass ? customClass : 'checkbox__icon--' + size + ' ')
+    "
+    role="checkbox"
+    [attr.aria-label]="
+      name +
+      'Press space to toggle the checkbox' +
+      (isChecked ? 'is checked' : 'is unchecked')
+    "
+  ></i>
+</div>
+<div></div>

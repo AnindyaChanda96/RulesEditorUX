@@ -1,0 +1,61 @@
+<div class="rules-editor" aria-label="Rules editor section">
+  <table class="clauses-table">
+    <tbody>
+      <tr class="clauses-header">
+        <th class="add-remove"></th>
+        <th class="grouping">
+          <button
+            [ngClass]="{ 'grouping-disabled': isGroupingDisabled }"
+            type="button"
+            aria-label="Group selected clauses"
+            (click)="groupSelectedIndices()"
+            [disabled]="isGroupingDisabled"
+          >
+            <i class="taco-icon taco-icon--group"></i>
+          </button>
+        </th>
+        <th class="groups">
+          <div [ngStyle]="{ width: groupsUiColWidth + 'px' }"></div>
+        </th>
+        <th class="logical">And/Or</th>
+        <th class="field">Field</th>
+        <th class="operator">Operator</th>
+        <th class="value">Value</th>
+        <th class="validation-status"></th>
+      </tr>
+      <rules-editor-row
+        class="clause clause-row-section"
+        *ngFor="let clause of clauses; let i = index"
+        [id]="editorIdentifier + '_clauserow_' + i"
+        [clauseIndex]="i"
+        [uniqueId]="editorIdentifier"
+        [clauseDetails]="clause"
+        [maxGroupLevel]="maxGroupLevel"
+        (createClause)="addNewClauseRow($event)"
+        (removeClause)="removeClauseRow($event)"
+        (removeGroup)="unGroupClausesByGroupId($event)"
+		    (clauseUpdated)="emitActiveClauses()"
+        (isCheckedToggled)="clauseGroupCheckToggled($event)"
+      ></rules-editor-row>
+      <tr class="clause add-clause-row">
+        <td class="add-remove" colspan="4">
+          <div
+            aria-labelledby="AddClause"
+            role="button"
+            tabindex="0"
+            (click)="
+              addNewClauseRow({
+                clauseIndex: -1
+              })
+            "
+            (keydown)="onkeydown($event, 'addClause')"
+            class="add-clause-block"
+          >
+            <span class="taco-icon taco-icon--add clause-row-add"></span>
+            <span class="add-clause" id="AddClause">Add new clause</span>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

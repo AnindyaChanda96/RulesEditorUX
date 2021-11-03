@@ -1,0 +1,44 @@
+.input__select--icon {
+  font-weight: 100;
+  display: inline;
+
+  &:after {
+    content: '\E70D';
+    font-size: 12px;
+    height: 12px;
+    width: 12px;
+    margin-left: -25px;
+    position: relative;
+    pointer-events: none;
+  }
+}
+
+.select {
+  height: 36px;
+  overflow: hidden;
+  border-radius: 3px;
+  margin-bottom: 1em;
+  &:after {
+    content: '\E70D';
+  }
+}
+
+.combobox {
+  margin: 10px;
+  width: 100%;
+  font: 14px;
+  height: 36px;
+  border: 1px solid #707070;
+  font: caption;
+  font-size: 16px;
+  -webkit-appearance: none;
+  /* for webkit browsers */
+  -moz-appearance: none;
+  /* for firefox */
+  appearance: none;
+  padding: 6px 12px 6px 12px;
+  &--disabled {
+    background-color: rgba(0, 0, 0, 0.1);
+    cursor: not-allowed;
+  }
+}
