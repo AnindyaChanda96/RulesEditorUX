@@ -4,7 +4,7 @@
       role="button"
       tabindex="0"
       aria-label="Insert new clause row"
-      class="taco-icon taco-icon--add clause-row-add"
+      class="bi bi-plus-lg clause-row-add"
       (click)="addNewClauseRowInEditor()"
       (keydown)="onkeydown($event, 'addClause')"
     ></span>
@@ -12,7 +12,7 @@
       role="button"
       tabindex="0"
       aria-label="Remove this clause row"
-      class="taco-icon taco-icon--close clause-row-delete"
+      class="bi bi-x-lg clause-row-delete"
       (click)="removeClauseRowFromEditor()"
       (keydown)="onkeydown($event, 'removeClause')"
     ></span>
@@ -37,7 +37,7 @@
         (click)="removeGroupFromEditor(i)"
         *ngIf="isGroupStartIndex(i)"
       >
-        <i class="taco-icon taco-icon--group"></i>
+        <i class="bi bi-people"></i>
       </button>
     </div>
   </td>
@@ -75,7 +75,7 @@
       </datalist>
 	  <i
 		*ngIf="selectedFieldTooltip"
-		class="taco-icon taco-icon--info"
+		class="bi bi-info-circle"
 		[title]="selectedFieldTooltip">
 	  </i>
     </div>
@@ -114,7 +114,7 @@
       </datalist>
 	  <i
 	    *ngIf="selectedValueTooltip"
-		class="taco-icon taco-icon--info"
+		class="bi bi-info-circle"
 		[title]="selectedValueTooltip">
 	  </i>
     </div>
